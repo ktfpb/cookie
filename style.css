@@ -23,7 +23,11 @@ body {
     opacity: 0;
     transform: scale(0.5);
     animation: appear 1s forwards;
-    z-index: 2;  /* Печенька всегда поверх сердечек */
+    z-index: 2;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 @keyframes appear {
@@ -31,19 +35,23 @@ body {
     100% { opacity: 1; transform: scale(1); }
 }
 
+@keyframes disappear {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(0.5); }
+}
+
 .falling-heart {
     position: absolute;
     font-size: 80px;
-    animation: fall 3s linear infinite;
-    z-index: 1;  /* Сердечки находятся за печенькой */
+    animation: fall 3s linear;
+    z-index: 1;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none; 
+    -ms-user-select: none;
 }
 
 @keyframes fall {
     0% { transform: translateY(-100px) scale(0.8); opacity: 1; }
     100% { transform: translateY(100vh) scale(1.5); opacity: 0; }
-}
-
-@keyframes rotate {
-    0% { transform: rotate(0deg) scale(1); }
-    100% { transform: rotate(360deg) scale(1); }
 }
